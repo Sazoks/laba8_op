@@ -8,13 +8,12 @@ def main():
     while is_run == 'y':
         name_dish = input("Enter the name dish:")
         price = int(input("Enter the price dish:"))
-        ingredients = dict()
+        ingredients = []
 
         add_more = 'y'
         while add_more == 'y':
             name_ingredient = input("Enter the name ingredient:")
-            count_ingredient = int(input("Enter the count ingredient:"))
-            ingredients[name_ingredient] = count_ingredient
+            ingredients.append(name_ingredient)
             add_more = input("Continue to add ingredients? [y/N]")
 
         temp_dish = dish.Dish(name_dish, price, ingredients)

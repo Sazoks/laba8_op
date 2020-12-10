@@ -1,13 +1,10 @@
-from typing import Dict
-
-
 class Dish:
     """
     Класс блюда.
     Содержит имя блюда, его цену и ингредиенты, из которых состоит.
     """
-    def __init__(self, name: str, price: int, ingredients: Dict[str, int]):
-        """Конструктор класса"""
+    def __init__(self, name: str, price: int, ingredients: list):
+        """Инициализатор класса"""
         self.__name = name
         self.__price = price
         self.__ingredients = ingredients
@@ -22,6 +19,11 @@ class Dish:
         """Геттер для получения цены"""
         return self.__price
 
+    @property
+    def ingredients(self):
+        """Геттер для получения ингердиентов"""
+        return self.__ingredients
+
     def cooking(self):
         """Имитация готовки"""
         print(f"Готовится: {self.__name}")
@@ -30,4 +32,4 @@ class Dish:
         """Вывод информации о блюде"""
         print("\t Название:", self.__name)
         print("\t Цена:", self.__price)
-        print("\t Ингредиенты:", *self.__ingredients.items())
+        print("\t Ингредиенты:", *self.__ingredients)

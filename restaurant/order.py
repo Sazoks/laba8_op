@@ -7,7 +7,7 @@ class Order:
     Содержит список заказанных блюд, состояние заказа и общую цену.
     """
     def __init__(self):
-        """Конструктор класса"""
+        """Инициализатор класса"""
         # Как выглядит __dishes:
         # {"name_dish": [object_dish, count_dish]}
         # Ключем выступает название блюда, а значением - список
@@ -38,19 +38,6 @@ class Order:
         """Сеттер для установки состояния заказа"""
         self.__confirmed = new_status
 
-    def show_order(self):
-        """Вывод информации о заказе"""
-        print("\n------------- З А К А З --------------")
-        print("Количество блюд:", self.__total_count)
-        print("Блюда:")
-        for number, element in enumerate(self.__dishes.items()):
-            print(f"{number + 1})\tНазвание: {element[0]}\n"
-                  f"\tКоличество: {element[1][1]}\n"
-                  f"\tЦена за 1шт: {element[1][0].price}\n"
-                  f"\tОбщая цена: {element[1][0].price * element[1][1]}")
-        print("Итого:", self.__total_price, "р.")
-        print("--------------------------------------")
-
     def add_dish(self, m_dish: dish.Dish):
         """Добавление блюда в заказ"""
         # Добавляем в словарь по ключу новое блюдо.
@@ -75,8 +62,6 @@ class Order:
             self.__dishes.pop(index_to_key)
         else:
             self.__dishes[index_to_key][1] -= 1
-        print("Заказ обновлен.")
-        self.show_order()
 
     def clear_order(self):
         """Обнуление заказа"""
