@@ -1,15 +1,15 @@
 from . import order
 from . import terminal_gui
 
-import sys
 import pickle
+from sys import path
 from typing import List
 from os.path import dirname
 from PyQt5 import QtWidgets
 
 
 # Необходимо для корректной загрузки меню из файла.
-sys.path.append(dirname(__file__))
+path.append(dirname(__file__))
 
 
 class Terminal(QtWidgets.QMainWindow):
@@ -41,6 +41,7 @@ class Terminal(QtWidgets.QMainWindow):
         """Метод инициализации интерфейса."""
         self.ui = terminal_gui.Ui_MainWindow()
         self.ui.setupUi(self)
+        self.setWindowTitle("Терминал")
 
         # Настройка таблиц.
         self.__set_settings_table(table=self.ui.table_menu,

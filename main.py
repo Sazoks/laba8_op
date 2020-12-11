@@ -5,6 +5,14 @@ from restaurant import terminal
 
 def main():
     app = QtWidgets.QApplication([])
+
+    try:
+        app.setStyleSheet(open("restaurant/style.qss").read())
+    except FileExistsError:
+        print("Ошибка загрузки стилей.")
+    except FileNotFoundError:
+        print("Файл стилей был перемещен или удален.")
+
     terminal_1 = terminal.Terminal()
     if terminal_1.worked:
         terminal_1.show()
