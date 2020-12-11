@@ -28,16 +28,6 @@ class Order:
         """Геттер для получения списка заказанных блюд"""
         return self.__dishes
 
-    @property
-    def confirmed(self):
-        """Геттер для получения состояния заказа"""
-        return self.__confirmed
-
-    @confirmed.setter
-    def confirmed(self, new_status: bool):
-        """Сеттер для установки состояния заказа"""
-        self.__confirmed = new_status
-
     def add_dish(self, m_dish: dish.Dish):
         """Добавление блюда в заказ"""
         # Добавляем в словарь по ключу новое блюдо.

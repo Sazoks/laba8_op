@@ -23,13 +23,3 @@ class Dish:
     def ingredients(self):
         """Геттер для получения ингердиентов"""
         return self.__ingredients
-
-    def cooking(self):
-        """Имитация готовки"""
-        print(f"Готовится: {self.__name}")
-
-    def print_info_dish(self):
-        """Вывод информации о блюде"""
-        print("\t Название:", self.__name)
-        print("\t Цена:", self.__price)
-        print("\t Ингредиенты:", *self.__ingredients)
