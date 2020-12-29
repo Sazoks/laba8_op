@@ -67,7 +67,8 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_2.setText(_translate("MainWindow", "Наше меню:"))
         self.add_dish_btn.setText(_translate("MainWindow", "Добавить в заказ"))
-        self.ingredients_btn.setText(_translate("MainWindow", "Посмотреть ингредиенты"))
+        self.ingredients_btn.setText(_translate("MainWindow",
+                                                "Посмотреть ингредиенты"))
         self.label.setText(_translate("MainWindow", "Ваш заказ:"))
         self.del_dish_btn.setText(_translate("MainWindow", "Удалить блюдо"))
         self.total_price_label.setText(_translate("MainWindow", "Итого: 0р"))

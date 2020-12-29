@@ -11,7 +11,7 @@ def main():
     except FileExistsError:
         print("Ошибка загрузки стилей.")
     except FileNotFoundError:
-        print("Файл стилей был перемещен или удален.")
+        print("Файл стилей не найден.")
 
     terminal_1 = terminal.Terminal()
     if terminal_1.worked:

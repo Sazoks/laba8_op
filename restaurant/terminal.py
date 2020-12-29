@@ -52,10 +52,10 @@ class Terminal(QtWidgets.QMainWindow):
         self.__update_menu_table()
 
         # Подключение слотов для обработки сигналов.
-        self.ui.add_dish_btn.clicked.connect(self.__add_dish)
-        self.ui.del_dish_btn.clicked.connect(self.__delete_dish)
-        self.ui.ingredients_btn.clicked.connect(self.__show_ingredients)
-        self.ui.pay_order_btn.clicked.connect(self.__pay_order)
+        self.ui.add_dish_btn.clicked.connect(self.__slot_add_dish)
+        self.ui.del_dish_btn.clicked.connect(self.__slot_delete_dish)
+        self.ui.ingredients_btn.clicked.connect(self.__slot_show_ingredients)
+        self.ui.pay_order_btn.clicked.connect(self.__slot_pay_order)
 
     @staticmethod
     def __set_settings_table(table: QtWidgets.QTableWidget,
@@ -122,7 +122,7 @@ class Terminal(QtWidgets.QMainWindow):
         self.ui.total_price_label.setText("Итого: " + str(self.__order.
                                                           total_price) + 'p')
 
-    def __show_ingredients(self):
+    def __slot_show_ingredients(self):
         """Метод для вывода ингредиентов блюда."""
         index_dish = self.__get_chosen_dish(self.ui.table_menu)
         if index_dish is not None:
@@ -131,21 +131,21 @@ class Terminal(QtWidgets.QMainWindow):
             msg.setText('\n'.join(self.__menu[index_dish].ingredients))
             msg.exec()
 
-    def __add_dish(self):
+    def __slot_add_dish(self):
         """Добавляем блюда в заказ, которые пользователь выбрал из меню."""
         index_dish = self.__get_chosen_dish(self.ui.table_menu)
         if index_dish is not None:
             self.__order.add_dish(self.__menu[index_dish])
             self.__update_order_table()
 
-    def __delete_dish(self):
+    def __slot_delete_dish(self):
         """Когда пользователь хочет посмотреть или редактировать заказ."""
         index_dish = self.__get_chosen_dish(self.ui.table_order)
         if index_dish is not None:
             self.__order.remove_dish(index_dish)
             self.__update_order_table()
 
-    def __pay_order(self):
+    def __slot_pay_order(self):
         """Подтверждение и последующая опалата заказа."""
         if self.__order.total_price == 0:
             msg = QtWidgets.QMessageBox()
